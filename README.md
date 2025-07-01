@@ -41,8 +41,9 @@ Analyze **monthly revenue** and **order volume** trends using SQL.
 ## 🧠 Query Logic
 
 sql
---- Monthly revenue and order volume trend
-SELECT 
+--- Monthly revenue and order volume trend----
+
+`SELECT 
     strftime('%Y', order_date) AS year,
     strftime('%m', order_date) AS month,
     SUM(amount) AS total_revenue,
@@ -53,6 +54,6 @@ GROUP BY
     year, month
 ORDER BY 
     year, month
-LIMIT 10;
+LIMIT 10;`
 
 Dataset : https://www.kaggle.com/datasets/ertugrulesol/online-retail-data/data
