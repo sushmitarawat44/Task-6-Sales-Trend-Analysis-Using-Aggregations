@@ -1,0 +1,58 @@
+Select * from Online_Sales;
+-- Extract Month from order_date
+SELECT 
+  strftime('%m', order_date) AS month
+FROM Online_Sales
+LIMIT 10;
+
+--Group by Year and Month
+SELECT 
+  strftime('%Y', order_date) AS year,
+  strftime('%m', order_date) AS month,
+  COUNT(*) AS total_orders
+FROM Online_Sales
+GROUP BY year, month
+LIMIT 10;
+
+--Use SUM() for Monthly Revenue
+SELECT 
+  strftime('%Y', order_date) AS year,
+  strftime('%m', order_date) AS month,
+  SUM(amount) AS total_revenue
+FROM Online_Sales
+GROUP BY year, month
+ORDER BY year, month
+LIMIT 10;
+
+--Use COUNT(DISTINCT order_id) for Order Volume
+SELECT 
+  strftime('%Y', order_date) AS year,
+  strftime('%m', order_date) AS month,
+  COUNT(DISTINCT customer_id || '-' || order_date) AS order_volume
+FROM Online_Sales
+GROUP BY year, month
+ORDER BY year, month
+LIMIT 10;
+
+--Use ORDER BY to Sort Results (Descending)
+SELECT 
+  strftime('%Y', order_date) AS year,
+  strftime('%m', order_date) AS month,
+  SUM(amount) AS revenue
+FROM Online_Sales
+GROUP BY year, month
+ORDER BY year DESC, month DESC
+LIMIT 10;
+
+--Limit to a Specific Year (e.g., 2022)
+SELECT 
+  strftime('%Y', order_date) AS year,
+  strftime('%m', order_date) AS month,
+  SUM(amount) AS total_revenue,
+  COUNT(DISTINCT customer_id || '-' || order_date) AS order_volume
+FROM Online_Sales
+WHERE strftime('%Y', order_date) = '2024'
+GROUP BY year, month
+ORDER BY month;
+
+
