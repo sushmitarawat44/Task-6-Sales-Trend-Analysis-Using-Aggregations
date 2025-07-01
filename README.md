@@ -40,7 +40,7 @@ Analyze **monthly revenue** and **order volume** trends using SQL.
 
 ## 🧠 Query Logic
 
-``sql
+sql
 --- Monthly revenue and order volume trend
 SELECT 
     strftime('%Y', order_date) AS year,
