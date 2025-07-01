@@ -55,7 +55,7 @@ Recombined and saved the file before importing into SQLite.
 
 ---
 
-🧠 Query Logic
+#🧠 Query Logic
 
 --Extract month from order date
 SELECT 
