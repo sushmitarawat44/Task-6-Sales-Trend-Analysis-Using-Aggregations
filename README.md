@@ -55,15 +55,15 @@ Recombined and saved the file before importing into SQLite.
 
 ---
 
-#🧠 Query Logic
+##🧠 Query Logic
 
---Extract month from order date
+`Extract month from order date`
 SELECT 
   strftime('%m', order_date) AS month
 FROM Online_Sales
 LIMIT 10;
 
---Group by Year and Month
+`Group by Year and Month`
 SELECT 
   strftime('%Y', order_date) AS year,
   strftime('%m', order_date) AS month,
@@ -72,7 +72,7 @@ FROM Online_Sales
 GROUP BY year, month
 LIMIT 10;
 
---Use SUM() for Monthly Revenue
+`Use SUM() for Monthly Revenue`
 SELECT 
   strftime('%Y', order_date) AS year,
   strftime('%m', order_date) AS month,
@@ -82,7 +82,7 @@ GROUP BY year, month
 ORDER BY year, month
 LIMIT 10;
 
---Use COUNT(DISTINCT order_id) for Order Volume
+`Use COUNT(DISTINCT order_id) for Order Volume`
 SELECT 
   strftime('%Y', order_date) AS year,
   strftime('%m', order_date) AS month,
@@ -92,7 +92,7 @@ GROUP BY year, month
 ORDER BY year, month
 LIMIT 10;
 
---Use ORDER BY to Sort Results (Descending)
+`Use ORDER BY to Sort Results (Descending)`
 SELECT 
   strftime('%Y', order_date) AS year,
   strftime('%m', order_date) AS month,
@@ -102,7 +102,7 @@ GROUP BY year, month
 ORDER BY year DESC, month DESC
 LIMIT 10;
 
---Limit to a Specific Year (e.g., 2022)
+`Limit to a Specific Year (e.g., 2022)`
 SELECT 
   strftime('%Y', order_date) AS year,
   strftime('%m', order_date) AS month,
@@ -113,7 +113,7 @@ WHERE strftime('%Y', order_date) = '2024'
 GROUP BY year, month
 ORDER BY month;
 
---Monthly revenue and order volume trend
+`Monthly revenue and order volume trend`
 
 SELECT 
     strftime('%Y', order_date) AS year,
